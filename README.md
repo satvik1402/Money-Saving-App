@@ -145,3 +145,25 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [Spring Boot](https://spring.io/projects/spring-boot) for the framework
 - [MySQL](https://www.mysql.com/) for the database
 - [Chart.js](https://www.chartjs.org/) for data visualization
+
+## Images
+![image](https://github.com/user-attachments/assets/38bcac4c-4043-4eb6-aa1f-63c272fa1395)
+![image](https://github.com/user-attachments/assets/8eaedeb6-ef3b-410f-b343-288deb5b5ad9)
+![image](https://github.com/user-attachments/assets/b222117f-c439-40b8-8701-1509df9eb017)
+![image](https://github.com/user-attachments/assets/4d646945-6f6b-4ac0-bc1f-e6b46c3e1bca)
+![image](https://github.com/user-attachments/assets/182016f0-0db6-4042-a775-c71a77367104)
+![image](https://github.com/user-attachments/assets/055f3342-fe60-4164-a588-4bf3175a714e)
+![image](https://github.com/user-attachments/assets/b0b8cc2b-579f-4fd0-b8ca-b8a61c37ca7f)
+![image](https://github.com/user-attachments/assets/8504cbd0-18b4-4f6c-ace9-4b7ed269b02a)
+![image](https://github.com/user-attachments/assets/6f9ab564-738d-4b51-b70a-be32a1ae0992)
+![image](https://github.com/user-attachments/assets/cabb2d74-f1c3-4efe-812b-17d58c4cb775)
+![image](https://github.com/user-attachments/assets/67d6557a-e2dc-4f98-9152-fcc58e379eb3)
+
+
+
+
+
+
+
+
+
