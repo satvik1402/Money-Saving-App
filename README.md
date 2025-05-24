@@ -91,7 +91,7 @@ The application uses a relational MySQL database with the following key tables:
 
 ### Database Setup
 ```sql
-CREATE DATABASE moneysaving CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE moneysaving;
 USE moneysaving;
 ```
 
