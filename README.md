@@ -2,7 +2,6 @@
 
 A modern, feature-rich financial management application designed to help users save money, manage expenses, and make smarter financial decisions through innovative features like Reverse Spend challenges, Guilt Save rules, Emergency Shield protection, and more.
 
-![Money Saving Application Dashboard](https://i.imgur.com/placeholder-image.png)
 
 ## 🌟 Features
 
