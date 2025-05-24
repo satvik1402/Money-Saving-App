@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Entry Checker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+        }
+        h1, h2 {
+            color: #2563eb;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        pre {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .timestamp {
+            font-size: 14px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Database Entry Checker</h1>
+    <div class="title">
+        <h2>Recent Database Activity</h2>
+        <div class="timestamp" id="timestamp"></div>
+    </div>
+    
+    <div class="card">
+        <h3>Reverse Spend Challenges</h3>
+        <button id="checkReverseSpend">Check Recent Challenges</button>
+        <div id="reverseSpendResults"></div>
+    </div>
+    
+    <div class="card">
+        <h3>Transactions</h3>
+        <button id="checkTransactions">Check Recent Transactions</button>
+        <div id="transactionsResults"></div>
+    </div>
+    
+    <div class="card">
+        <h3>Guilt Save Rules</h3>
+        <button id="checkGuiltSave">Check Recent Rules</button>
+        <div id="guiltSaveResults"></div>
+    </div>
+    
+    <div class="card">
+        <h3>Subscriptions</h3>
+        <button id="checkSubscriptions">Check Recent Subscriptions</button>
+        <div id="subscriptionsResults"></div>
+    </div>
+
+    <script>
+        // Update timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            document.getElementById('timestamp').textContent = 'Last updated: ' + now.toLocaleString();
+        }
+        
+        updateTimestamp();
+        
+        // Query execution function
+        async function executeQuery(query, resultsDivId) {
+            const resultsDiv = document.getElementById(resultsDivId);
+            resultsDiv.innerHTML = '<p>Checking database...</p>';
+            
+            try {
+                const response = await fetch('/api/test/execute-query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: query }),
+                });
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    resultsDiv.innerHTML = `
+                        <p style="color: #ef4444;">Error: ${data.error}</p>
+                    `;
+                } else {
+                    if (data.results.length === 0) {
+                        resultsDiv.innerHTML = '<p>No records found.</p>';
+                    } else {
+                        resultsDiv.innerHTML = `
+                            <p>Found ${data.results.length} records:</p>
+                            <pre>${JSON.stringify(data.results, null, 2)}</pre>
+                        `;
+                    }
+                }
+                
+                updateTimestamp();
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <p style="color: #ef4444;">Error: ${error.message}</p>
+                `;
+            }
+        }
+        
+        // Event listeners
+        document.getElementById('checkReverseSpend').addEventListener('click', () => {
+            executeQuery('SELECT * FROM reverse_spend ORDER BY id DESC LIMIT 5', 'reverseSpendResults');
+        });
+        
+        document.getElementById('checkTransactions').addEventListener('click', () => {
+            executeQuery('SELECT * FROM transactions ORDER BY id DESC LIMIT 5', 'transactionsResults');
+        });
+        
+        document.getElementById('checkGuiltSave').addEventListener('click', () => {
+            executeQuery('SELECT * FROM guilt_save ORDER BY id DESC LIMIT 5', 'guiltSaveResults');
+        });
+        
+        document.getElementById('checkSubscriptions').addEventListener('click', () => {
+            executeQuery('SELECT * FROM subscriptions ORDER BY id DESC LIMIT 5', 'subscriptionsResults');
+        });
+    </script>
+</body>
+</html>

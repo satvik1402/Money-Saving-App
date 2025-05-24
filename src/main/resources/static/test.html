@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Connection Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2563eb;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+        .card {
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        pre {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .status-ok {
+            color: #10b981;
+            font-weight: bold;
+        }
+        .status-error {
+            color: #ef4444;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Database Connection Test</h1>
+    
+    <div class="card">
+        <h2>Test Database Connection</h2>
+        <p>Click the button below to verify the connection to your MySQL database and check data counts:</p>
+        <button id="testDbButton">Test Database Connection</button>
+        <div id="dbResults" style="margin-top: 20px;"></div>
+    </div>
+    
+    <div class="card">
+        <h2>Test API Endpoints</h2>
+        <p>Test various API endpoints to verify data is flowing correctly:</p>
+        <button id="testUserButton">Get User Data</button>
+        <button id="testTransactionsButton">Get Transactions</button>
+        <button id="testSubscriptionsButton">Get Subscriptions</button>
+        <div id="apiResults" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        document.getElementById('testDbButton').addEventListener('click', async () => {
+            const resultsDiv = document.getElementById('dbResults');
+            resultsDiv.innerHTML = '<p>Testing database connection...</p>';
+            
+            try {
+                const response = await fetch('/api/test/db-check');
+                const data = await response.json();
+                
+                let html = '<h3>Database Connection Results:</h3>';
+                
+                if (data.status === 'connected') {
+                    html += `<p class="status-ok">✅ Connected successfully!</p>`;
+                    html += `<p>User count: ${data.userCount}</p>`;
+                    html += `<p>Transaction count: ${data.transactionCount}</p>`;
+                    html += `<p>Account count: ${data.accountCount}</p>`;
+                    html += `<p>Subscription count: ${data.subscriptionCount}</p>`;
+                    
+                    if (data.firstUserName) {
+                        html += `<p>First user: ${data.firstUserName} (${data.firstUserEmail})</p>`;
+                    }
+                } else {
+                    html += `<p class="status-error">❌ Connection error</p>`;
+                    html += `<p>Error message: ${data.message}</p>`;
+                    html += `<p>Error type: ${data.errorType}</p>`;
+                }
+                
+                html += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                resultsDiv.innerHTML = html;
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <h3>Database Connection Results:</h3>
+                    <p class="status-error">❌ Connection failed</p>
+                    <p>Error: ${error.message}</p>
+                `;
+            }
+        });
+        
+        document.getElementById('testUserButton').addEventListener('click', async () => {
+            const resultsDiv = document.getElementById('apiResults');
+            resultsDiv.innerHTML = '<p>Fetching user data...</p>';
+            
+            try {
+                const response = await fetch('/users/1');
+                const data = await response.json();
+                
+                resultsDiv.innerHTML = `
+                    <h3>User Data:</h3>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <h3>User Data:</h3>
+                    <p class="status-error">❌ Failed to fetch user data</p>
+                    <p>Error: ${error.message}</p>
+                `;
+            }
+        });
+        
+        document.getElementById('testTransactionsButton').addEventListener('click', async () => {
+            const resultsDiv = document.getElementById('apiResults');
+            resultsDiv.innerHTML = '<p>Fetching transactions...</p>';
+            
+            try {
+                const response = await fetch('/transactions/user/1');
+                const data = await response.json();
+                
+                resultsDiv.innerHTML = `
+                    <h3>Transactions Data:</h3>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <h3>Transactions Data:</h3>
+                    <p class="status-error">❌ Failed to fetch transactions</p>
+                    <p>Error: ${error.message}</p>
+                `;
+            }
+        });
+        
+        document.getElementById('testSubscriptionsButton').addEventListener('click', async () => {
+            const resultsDiv = document.getElementById('apiResults');
+            resultsDiv.innerHTML = '<p>Fetching subscriptions...</p>';
+            
+            try {
+                const response = await fetch('/subscriptions/user/1');
+                const data = await response.json();
+                
+                resultsDiv.innerHTML = `
+                    <h3>Subscriptions Data:</h3>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <h3>Subscriptions Data:</h3>
+                    <p class="status-error">❌ Failed to fetch subscriptions</p>
+                    <p>Error: ${error.message}</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

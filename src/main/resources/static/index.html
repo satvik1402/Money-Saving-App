@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand&Brain - Modern Savings App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col justify-between py-8 px-4">
+            <div>
+                <div class="flex items-center gap-3 mb-8">
+                    <img src="logo.png" alt="Hand&Brain Logo" class="w-10 h-10 rounded-lg object-cover">
+                    <span class="text-xl font-bold text-blue-600">Hand&Brain</span>
+                </div>
+                <nav>
+                    <ul class="space-y-2">
+                        <li><a href="#dashboard" class="flex items-center gap-3 px-3 py-2 rounded-lg font-medium text-blue-600 bg-blue-50"><span class="text-xl">🏠</span> Dashboard</a></li>
+                        <li><a href="#reverse-spend" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100"><span class="text-xl">↔️</span> Reverse Spend</a></li>
+                        <li><a href="#guilt-save" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100"><span class="text-xl">⚡</span> Guilt Save</a></li>
+                        <li><a href="#emergency-shield" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100"><span class="text-xl">🛡️</span> Emergency Shield</a></li>
+                        <li><a href="#group-investment" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100"><span class="text-xl">👥</span> Group Investments</a></li>
+                        <li><a href="#subscription-trimmer" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100"><span class="text-xl">✂️</span> Subscription Trimmer</a></li>
+                        <li><a href="#financial-reports" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100"><span class="text-xl">📊</span> Financial Reports</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="mt-8">
+                <a href="#settings" class="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-500 hover:bg-gray-100"><span class="text-xl">⚙️</span> Settings</a>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <header class="flex justify-end items-center px-8 py-4 bg-white border-b border-gray-200">
+                <span class="text-xl text-gray-400 mr-4">🔔</span>
+                <span class="text-xl text-gray-400 mr-4">🌙</span>
+                <div class="flex items-center gap-2 bg-blue-50 px-3 py-1 rounded-full">
+                    <img src="avatar-placeholder.jpg" alt="User Avatar" id="user-avatar" class="w-9 h-9 rounded-full border-2 border-blue-200">
+                    <div class="flex flex-col">
+                        <span id="username" class="font-semibold text-blue-700">Satvik</span>
+                        <span id="user-balance" class="text-xs text-blue-500">₹100,000</span>
+                    </div>
+                </div>
+            </header>
+            <main class="p-8 flex flex-col gap-8">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="active-section flex flex-col gap-8">
+                    <!-- Welcome Banner -->
+                    <div class="bg-blue-600 rounded-2xl shadow-lg p-8 flex justify-between items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-1">Welcome back, Jordan!</h2>
+                            <p class="text-blue-100">Your financial health is looking good today.</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="bg-blue-100 text-blue-700 font-semibold px-4 py-1 rounded-full">Level 7 Saver</span>
+                            <span class="bg-red-100 text-red-600 font-semibold px-4 py-1 rounded-full flex items-center gap-1">5 Day Streak <span>🔥</span></span>
+                        </div>
+                    </div>
+                    <!-- Financial Stories -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-3">Financial Stories</h3>
+                        <div class="flex gap-8 items-end">
+                            <div class="flex flex-col items-center"><span class="bg-blue-100 rounded-full p-4 text-3xl mb-2">📊</span><span class="text-sm font-medium">Weekly Summary</span></div>
+                            <div class="flex flex-col items-center"><span class="bg-green-100 rounded-full p-4 text-3xl mb-2">🏆</span><span class="text-sm font-medium">Savings Milestone</span></div>
+                            <div class="flex flex-col items-center"><span class="bg-yellow-100 rounded-full p-4 text-3xl mb-2">💡</span><span class="text-sm font-medium">Investment Tip</span></div>
+                            <div class="flex flex-col items-center"><span class="bg-red-200 rounded-full p-4 text-3xl mb-2">⚠️</span><span class="text-sm font-medium">Spending Alert</span></div>
+                            <div class="flex flex-col items-center"><span class="bg-purple-200 rounded-full p-4 text-3xl mb-2">✨</span><span class="text-sm font-medium">New Feature</span></div>
+                        </div>
+                    </div>
+                    <!-- Example: Weekly Summary Card (replace with your dynamic content as needed) -->
+                    <div class="bg-white rounded-2xl shadow p-6">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-blue-100 rounded-full p-2 text-xl">📊</span>
+                            <div>
+                                <div class="font-semibold text-gray-700">Hand&Brain</div>
+                                <div class="text-xs text-gray-400">Financial Report</div>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold mb-1">Your Weekly Summary</h4>
+                        <p class="text-gray-500 mb-4">You saved ₹2,500 this week! That's 25% more than last week.</p>
+                        <div class="flex gap-4">
+                            <div class="flex-1 bg-blue-50 rounded-xl p-4 text-center">
+                                <div class="text-blue-700 font-bold text-lg">Income</div>
+                                <div class="text-2xl font-bold">₹15,000</div>
+                            </div>
+                            <div class="flex-1 bg-red-50 rounded-xl p-4 text-center">
+                                <div class="text-red-600 font-bold text-lg">Spent</div>
+                                <div class="text-2xl font-bold">₹12,500</div>
+                            </div>
+                            <div class="flex-1 bg-green-50 rounded-xl p-4 text-center">
+                                <div class="text-green-600 font-bold text-lg">Saved</div>
+                                <div class="text-2xl font-bold">₹2,500</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Savings Overview Example -->
+                    <div class="bg-white rounded-2xl shadow p-6">
+                        <h4 class="text-xl font-bold mb-2">Savings Overview</h4>
+                        <p class="text-gray-500 mb-4">Track your progress towards financial goals</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="flex flex-col items-center bg-gray-50 rounded-xl p-6">
+                                <div class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center text-blue-600 text-2xl font-bold">42.5%</div>
+                                <div class="mt-2 font-semibold">Total Savings</div>
+                                <div class="text-lg font-bold">₹42,500</div>
+                                <div class="text-gray-400 text-sm">Target: ₹100,000</div>
+                            </div>
+                            <div class="flex flex-col items-center bg-gray-50 rounded-xl p-6">
+                                <div class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center text-green-600 text-2xl font-bold">60%</div>
+                                <div class="mt-2 font-semibold">Emergency Fund</div>
+                                <div class="text-lg font-bold">₹15,000</div>
+                                <div class="text-gray-400 text-sm">Target: ₹25,000</div>
+                            </div>
+                            <div class="flex flex-col items-center bg-gray-50 rounded-xl p-6">
+                                <div class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center text-yellow-500 text-2xl font-bold">28.3%</div>
+                                <div class="mt-2 font-semibold">Travel Goal</div>
+                                <div class="text-lg font-bold">₹8,500</div>
+                                <div class="text-gray-400 text-sm">Target: ₹30,000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quick Actions Example -->
+                    <div class="bg-white rounded-2xl shadow p-6">
+                        <h4 class="text-xl font-bold mb-2">Quick Actions</h4>
+                        <p class="text-gray-500 mb-4">Frequently used features</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="flex flex-col items-center justify-center border-2 border-dashed border-blue-300 rounded-xl p-6 cursor-pointer hover:bg-blue-50">
+                                <span class="text-3xl text-blue-500 mb-2">+</span>
+                                <div class="font-semibold">Add Money</div>
+                                <div class="text-xs text-gray-400">To savings</div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center bg-blue-50 rounded-xl p-6 cursor-pointer">
+                                <span class="text-3xl text-blue-500 mb-2">↔️</span>
+                                <div class="font-semibold">Reverse Spend</div>
+                                <div class="text-xs text-gray-400">Set limits</div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center bg-yellow-50 rounded-xl p-6 cursor-pointer">
+                                <span class="text-3xl text-yellow-500 mb-2">🛡️</span>
+                                <div class="font-semibold">Emergency Shield</div>
+                                <div class="text-xs text-gray-400">Secure funds</div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center bg-green-50 rounded-xl p-6 cursor-pointer">
+                                <span class="text-3xl text-green-500 mb-2">✂️</span>
+                                <div class="font-semibold">Trim Subscriptions</div>
+                                <div class="text-xs text-gray-400">Optimize costs</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Spending Insights Example -->
+                    <div class="bg-white rounded-2xl shadow p-6">
+                        <h4 class="text-xl font-bold mb-2">Spending Insights</h4>
+                        <p class="text-gray-500 mb-4">Track where your money is going</p>
+                        <div class="flex gap-4 mb-4">
+                            <button class="flex-1 py-2 rounded-lg bg-blue-50 text-blue-700 font-semibold">Weekly</button>
+                            <button class="flex-1 py-2 rounded-lg bg-gray-100 text-gray-500 font-semibold">Monthly</button>
+                            <button class="flex-1 py-2 rounded-lg bg-gray-100 text-gray-500 font-semibold">Yearly</button>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="flex-1">
+                                <div class="font-semibold mb-2">Top Categories</div>
+                                <div class="flex items-center justify-between mb-2"><span>Food</span><span class="text-green-600 font-bold category-value" data-category="Food">₹12,500</span></div>
+                                <div class="w-full h-2 bg-green-200 rounded mb-2"><div class="h-2 bg-green-500 rounded" style="width:70%"></div></div>
+                                <div class="flex items-center justify-between mb-2"><span>Shopping</span><span class="text-yellow-600 font-bold category-value" data-category="Shopping">₹8,000</span></div>
+                                <div class="w-full h-2 bg-yellow-200 rounded mb-2"><div class="h-2 bg-yellow-500 rounded" style="width:45%"></div></div>
+                                <div class="flex items-center justify-between mb-2"><span>Entertainment</span><span class="text-blue-600 font-bold category-value" data-category="Entertainment">₹5,500</span></div>
+                                <div class="w-full h-2 bg-blue-200 rounded mb-2"><div class="h-2 bg-blue-500 rounded" style="width:30%"></div></div>
+                                <div class="flex items-center justify-between mb-2"><span>Transport</span><span class="text-red-600 font-bold category-value" data-category="Transport">₹4,500</span></div>
+                                <div class="w-full h-2 bg-red-200 rounded mb-2"><div class="h-2 bg-red-500 rounded" style="width:20%"></div></div>
+                                <div class="flex items-center justify-between mb-2"><span>Others</span><span class="text-gray-600 font-bold category-value" data-category="Others">₹5,500</span></div>
+                                <div class="w-full h-2 bg-gray-200 rounded"><div class="h-2 bg-gray-500 rounded" style="width:25%"></div></div>
+                            </div>
+                            <div class="flex-1 flex items-center justify-center">
+                                <div id="donut-chart" class="donut-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recent Transactions Example -->
+                    <div class="bg-white rounded-2xl shadow p-6">
+                        <h4 class="text-xl font-bold mb-2">Recent Transactions</h4>
+                        <p class="text-gray-500 mb-4">Your latest financial activities</p>
+                        <ul class="space-y-3 transactions-list">
+                            <li class="flex items-center bg-red-50 rounded-lg px-4 py-3">
+                                <div class="flex items-center gap-3 flex-1"><span class="text-2xl">☕</span> <span class="font-semibold">Coffee Shop</span> <span class="text-gray-400 text-sm ml-2">Today, 9:30 AM</span></div>
+                                <div class="flex items-center gap-2 transaction-amount-col"><span class="text-red-600 font-bold">-₹500</span><span class="bg-blue-100 text-blue-700 rounded px-2 py-1 text-xs">Food & Drinks</span></div>
+                            </li>
+                            <li class="flex items-center bg-blue-50 rounded-lg px-4 py-3">
+                                <div class="flex items-center gap-3 flex-1"><span class="text-2xl">🛍️</span> <span class="font-semibold">H&M</span> <span class="text-gray-400 text-sm ml-2">Yesterday, 2:15 PM</span></div>
+                                <div class="flex items-center gap-2 transaction-amount-col"><span class="text-red-600 font-bold">-₹2,500</span><span class="bg-yellow-100 text-yellow-700 rounded px-2 py-1 text-xs">Shopping</span></div>
+                            </li>
+                            <li class="flex items-center bg-green-50 rounded-lg px-4 py-3">
+                                <div class="flex items-center gap-3 flex-1"><span class="text-2xl">🍽️</span> <span class="font-semibold">Restaurant</span> <span class="text-gray-400 text-sm ml-2">Apr 2, 8:30 PM</span></div>
+                                <div class="flex items-center gap-2 transaction-amount-col"><span class="text-red-600 font-bold">-₹1,800</span><span class="bg-blue-100 text-blue-700 rounded px-2 py-1 text-xs">Food & Drinks</span></div>
+                            </li>
+                            <li class="flex items-center bg-purple-50 rounded-lg px-4 py-3">
+                                <div class="flex items-center gap-3 flex-1"><span class="text-2xl">🎬</span> <span class="font-semibold">Movie Tickets</span></div>
+                                <div class="flex items-center gap-2 transaction-amount-col"><span class="text-red-600 font-bold">-₹600</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- Feature Sections: All hidden by default, shown when nav is clicked -->
+                <section id="reverse-spend" class="hidden">
+                    <div class="max-w-xl mx-auto bg-white rounded-2xl shadow p-8">
+                        <h2 class="text-2xl font-bold mb-1">Reverse Spend</h2>
+                        <p class="text-gray-500 mb-6">Set spending restrictions and earn rewards for not spending in specific categories.</p>
+                        <h3 class="font-semibold text-lg mb-4">Create New Restriction</h3>
+                        <form id="reverse-spend-form" class="space-y-4">
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="category">Category</label>
+                                <select id="category" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                                    <option value="">Select a category</option>
+                                    <option value="online-shopping">Online Shopping</option>
+                                    <option value="fast-food">Fast Food</option>
+                                    <option value="entertainment">Entertainment</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="budget-limit">Budget Limit (₹)</label>
+                                <input type="number" id="budget-limit" min="1000" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="time-period">Time Period</label>
+                                <select id="time-period" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                                    <option value="3months">3 Months</option>
+                                    <option value="6months">6 Months</option>
+                                    <option value="year">1 Year</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="reward-percentage">Reward Percentage</label>
+                                <input type="range" id="reward-percentage" min="2" max="5" value="3" class="w-full">
+                                <span id="reward-percentage-value" class="text-blue-700 font-semibold">3%</span>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg">Create Restriction</button>
+                        </form>
+                        <div class="mt-8">
+                            <h3 class="font-semibold text-lg mb-2">Active Challenges</h3>
+                            <div id="active-restrictions-list" class="space-y-3"></div>
+                            <h3 class="font-semibold text-lg mt-6 mb-2">Challenge History</h3>
+                            <div id="restriction-history-list" class="space-y-3"></div>
+                        </div>
+                    </div>
+                </section>
+                <section id="guilt-save" class="hidden">
+                    <div class="max-w-xl mx-auto bg-white rounded-2xl shadow p-8">
+                        <h2 class="text-2xl font-bold mb-1">Guilt Save</h2>
+                        <p class="text-gray-500 mb-6">Automatically save a portion of your guilty pleasure spending.</p>
+                        <h3 class="font-semibold text-lg mb-4">Set Up Guilt Save Rules</h3>
+                        <form id="guilt-save-form" class="space-y-4">
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="guilt-category">Category</label>
+                                <select id="guilt-category" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                                    <option value="">Select a category</option>
+                                    <option value="eating-out">Eating Out</option>
+                                    <option value="shopping">Shopping</option>
+                                    <option value="gaming">Gaming</option>
+                                    <option value="streaming">Streaming Services</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="guilt-percentage">Save Percentage</label>
+                                <input type="range" id="guilt-percentage" min="5" max="30" value="10" class="w-full">
+                                <span id="guilt-percentage-value" class="text-blue-700 font-semibold">10%</span>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="guilt-destination">Save To</label>
+                                <select id="guilt-destination" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                                    <option value="emergency-fund">Emergency Fund</option>
+                                    <option value="vacation-fund">Vacation Fund</option>
+                                    <option value="investment">Investment Account</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg">Save Rule</button>
+                        </form>
+                        <div class="mt-8">
+                            <h3 class="font-semibold text-lg mb-2">Active Guilt Save Rules</h3>
+                            <div id="active-guilt-rules-list" class="space-y-3"></div>
+                            <h3 class="font-semibold text-lg mt-6 mb-2">Guilt Save History</h3>
+                            <div id="guilt-save-history-list" class="space-y-3"></div>
+                        </div>
+                    </div>
+                </section>
+                <section id="emergency-shield" class="hidden">
+                    <div class="max-w-xl mx-auto bg-white rounded-2xl shadow p-8">
+                        <h2 class="text-2xl font-bold mb-1">Emergency Shield</h2>
+                        <p class="text-gray-500 mb-6">Protect your savings with friend authorization for withdrawals.</p>
+                        <h3 class="font-semibold text-lg mb-4">Set Up Emergency Shield</h3>
+                        <form id="emergency-shield-form" class="space-y-4">
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="trusted-friend-name">Friend's Name</label>
+                                <input type="text" id="trusted-friend-name" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="trusted-friend-email">Friend's Email</label>
+                                <input type="email" id="trusted-friend-email" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="trusted-friend-phone">Friend's Phone</label>
+                                <input type="tel" id="trusted-friend-phone" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="protected-account">Account to Protect</label>
+                                <select id="protected-account" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                                    <option value="emergency-fund">Emergency Fund</option>
+                                    <option value="savings">Savings Account</option>
+                                    <option value="investment">Investment Account</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-blue-700 mb-1" for="withdrawal-threshold">Withdrawal Threshold (₹)</label>
+                                <input type="number" id="withdrawal-threshold" min="500" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                                <small class="text-gray-400">Friend approval required for withdrawals above this amount</small>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg">Set Up Shield</button>
+                        </form>
+                        <div class="mt-8">
+                            <h3 class="font-semibold text-lg mb-2">Active Emergency Shields</h3>
+                            <div id="active-shields-list" class="space-y-3"></div>
+                            <h3 class="font-semibold text-lg mt-6 mb-2">Withdrawal Requests</h3>
+                            <div id="withdrawal-requests-list" class="space-y-3"></div>
+                        </div>
+                    </div>
+                </section>
+                <section id="group-investment" class="hidden">
+                    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow p-8">
+                        <h2 class="text-2xl font-bold mb-1">Group Investment Pot</h2>
+                        <p class="text-gray-500 mb-6">Invest together with friends and family for collective growth.</p>
+                        <h3 class="font-semibold text-lg mb-4">Your Investment Groups</h3>
+                        <div id="investment-groups-list" class="space-y-4"></div>
+                        <button id="create-group-btn" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg mt-6">Create New Group</button>
+                        <div id="create-group-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+                            <div class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-lg relative">
+                                <button class="absolute top-4 right-4 text-2xl close-modal">&times;</button>
+                                <h3 class="font-semibold text-lg mb-4">Create Investment Group</h3>
+                                <form id="create-group-form" class="space-y-4">
+                                    <div>
+                                        <label class="block font-semibold text-blue-700 mb-1" for="group-name">Group Name</label>
+                                        <input type="text" id="group-name" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-blue-700 mb-1" for="investment-goal">Investment Goal</label>
+                                        <input type="text" id="investment-goal" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-blue-700 mb-1" for="monthly-contribution">Monthly Contribution (₹)</label>
+                                        <input type="number" id="monthly-contribution" min="100" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-blue-700 mb-1" for="investment-type">Investment Type</label>
+                                        <select id="investment-type" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" required>
+                                            <option value="">Select investment type</option>
+                                            <option value="mutual-fund">Mutual Fund</option>
+                                            <option value="sip">SIP</option>
+                                            <option value="stocks">Stocks</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-blue-700 mb-1">Invite Members</label>
+                                        <input type="text" id="member-search" class="w-full rounded-lg border-gray-200 bg-gray-100 p-3" placeholder="Search for friends">
+                                        <div id="member-search-results" class="mt-2"></div>
+                                        <div id="selected-members" class="flex flex-wrap gap-2 mt-2"></div>
+                                    </div>
+                                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg">Create Group</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="subscription-trimmer" class="hidden">
+                    <div class="max-w-xl mx-auto bg-white rounded-2xl shadow p-8">
+                        <h2 class="text-2xl font-bold mb-1">Subscription Trimmer+</h2>
+                        <p class="text-gray-500 mb-6">Optimize your recurring expenses</p>
+                        <button id="scan-subscriptions-btn" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg mb-6">Scan for Subscriptions</button>
+                        <div id="subscriptions-list" class="space-y-4 mb-8"></div>
+                        <h3 class="font-semibold text-lg mb-2">Recommendations</h3>
+                        <div id="subscription-recommendations-list" class="space-y-3 mb-8"></div>
+                        <h3 class="font-semibold text-lg mb-2">Shared Subscription Pool</h3>
+                        <button id="create-pool-btn" class="w-full bg-green-500 text-white font-semibold py-3 rounded-lg mb-4">Create Subscription Pool</button>
+                        <div id="subscription-pools-list" class="space-y-3"></div>
+                    </div>
+                </section>
+                <section id="financial-reports" class="hidden">
+                    <div class="max-w-xl mx-auto bg-white rounded-2xl shadow p-8">
+                        <h2 class="text-2xl font-bold mb-1">AI Financial Reports</h2>
+                        <p class="text-gray-500 mb-6">Generate and share your financial achievements as Instagram stories.</p>
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-lg mb-2">Generate Report</h3>
+                            <div class="flex gap-4 mb-4">
+                                <button id="monthly-report-btn" class="bg-blue-50 text-blue-700 font-semibold px-4 py-2 rounded-full">Monthly Report</button>
+                                <button id="quarterly-report-btn" class="bg-blue-50 text-blue-700 font-semibold px-4 py-2 rounded-full">Quarterly Report</button>
+                                <button id="yearly-report-btn" class="bg-blue-50 text-blue-700 font-semibold px-4 py-2 rounded-full">Yearly Report</button>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <h3 class="font-semibold text-lg mb-2">Preview</h3>
+                            <div id="report-preview-container" class="min-h-[120px] flex items-center justify-center text-gray-400">Select a report type to generate a preview</div>
+                            <div class="flex gap-4 mt-4 report-actions" style="display: none;">
+                                <button id="customize-report-btn" class="bg-gray-200 text-gray-700 font-semibold px-4 py-2 rounded-full">Customize</button>
+                                <button id="share-report-btn" class="bg-blue-600 text-white font-semibold px-4 py-2 rounded-full">Share to Instagram</button>
+                                <button id="download-report-btn" class="bg-gray-200 text-gray-700 font-semibold px-4 py-2 rounded-full">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="api.js" type="module"></script>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
